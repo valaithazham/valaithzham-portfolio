@@ -1,7 +1,8 @@
 {
-  "name": "nextjs",
-  "version": "0.1.0",
+  "name": "valaithzham.com",
+  "version": "1.0.0",
   "private": true,
+    "homepage": "https://valaithzham.github.io/valaithzham-portfolio/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
