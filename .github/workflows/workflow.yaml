@@ -7,7 +7,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -30,7 +30,7 @@ jobs:
     - name: Build the app
       env:
         GITHUB_PAGES: 'true' # Enable GitHub Pages settings
-      run: npm run build
+      run: npm run export
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
