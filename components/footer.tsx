@@ -52,19 +52,19 @@ const Footer = () => {
               <li>
                 <span className="block font-semibold">Email:</span>
                 <a
-                  href="mailto:contact@example.com"
+                  href="mailto:valaithazhamofficial@gmail.com"
                   className="hover:text-indigo-400 transition duration-200"
                 >
-                  contact@example.com
+                  valaithazhamofficial@gmail.com
                 </a>
               </li>
               <li>
                 <span className="block font-semibold">Phone:</span>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+917904188021"
                   className="hover:text-indigo-400 transition duration-200"
                 >
-                  +123 456 7890
+                  +9179 041 88021
                 </a>
               </li>
               <li>
@@ -77,7 +77,7 @@ const Footer = () => {
 
         <div className="mt-12 border-t border-gray-700 pt-6 text-center">
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} Your Company. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Valaithazham. All Rights Reserved.
           </p>
         </div>
       </div>

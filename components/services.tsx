@@ -1,29 +1,29 @@
-import { Shield, Zap, Heart, Star } from "lucide-react";
+import { Brain, BookHeart, ShoppingCart, ScanText } from "lucide-react";
 
 const services = [
   {
-    icon: Shield,
-    title: "Secure Platform",
-    description: "Enterprise-grade security for all your data and transactions",
+    icon: BookHeart,
+    title: "Professional/Personal Websites",
+    description: "Clean, professional, and informative websites that effectively showcase your business, services, and contact details in a streamlined, user-friendly form",
   },
   {
-    icon: Zap,
-    title: "Fast Performance",
-    description: "Lightning-fast response times and optimal efficiency",
+    icon: ShoppingCart,
+    title: "E-Commerce Websites",
+    description: "Feature-rich online stores with secure payment integrations, product catalogs, and a seamless shopping experience for your customers.",
   },
   {
-    icon: Heart,
-    title: "User Friendly",
-    description: "Intuitive interface designed with users in mind",
+    icon: ScanText,
+    title: "Computer Vision - Enhanced Websites",
+    description: "Harness the power of cutting-edge technology with websites that integrate computer vision capabilities, enabling innovative functionalities like image recognition and real-time analysis.",
   },
   {
-    icon: Star,
-    title: "Top Quality",
-    description: "Premium quality service and support guaranteed",
+    icon: Brain,
+    title: "AI-Powered Solutions",
+    description: "Chatbots: Engage your audience 24/7 with AI-driven chatbots that offer personalized support and boost customer satisfaction.",
   },
 ];
 
-export default function Services() {
+export default function Services() {  
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,9 +51,9 @@ export default function Services() {
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {service.description}
-                </p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {service.description}
+                  </p>
               </div>
             );
           })}
