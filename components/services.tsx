@@ -1,4 +1,4 @@
-import { Brain, BookHeart, ShoppingCart, ScanText } from "lucide-react";
+import { Brain, BookHeart, ShoppingCart, ScanEye } from "lucide-react";
 
 const services = [
   {
@@ -12,7 +12,7 @@ const services = [
     description: "Feature-rich online stores with secure payment integrations, product catalogs, and a seamless shopping experience for your customers.",
   },
   {
-    icon: ScanText,
+    icon: ScanEye,
     title: "Computer Vision - Enhanced Websites",
     description: "Harness the power of cutting-edge technology with websites that integrate computer vision capabilities, enabling innovative functionalities like image recognition and real-time analysis.",
   },
