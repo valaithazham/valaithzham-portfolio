@@ -8,7 +8,8 @@ const teamMembers = [
     image:
       "https://media.licdn.com/dms/image/v2/D4D03AQFbq6CaQrb4Bw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707798549337?e=1738800000&v=beta&t=OpSrX9qk1P6Oj-FLi_cVjIB1J1ZUkitqwxR6l_4axrQ",
     linkedInUrl: "https://www.linkedin.com/in/yogabalajee",
-    description: "Creates visually compelling designs, combining creativity and technical expertise to communicate ideas effectively and enhance brand identity.",
+    description:
+      "Creates visually compelling designs, combining creativity and technical expertise to communicate ideas effectively and enhance brand identity.",
   },
   {
     name: "Santheesh A",
@@ -17,7 +18,8 @@ const teamMembers = [
     image:
       "https://media.licdn.com/dms/image/v2/D5603AQEkGIy1jnaKXg/profile-displayphoto-shrink_800_800/B56ZNpOcgbGkAs-/0/1732637216286?e=1738800000&v=beta&t=X9rNXoxcei5uG3oxZ49nn88_GmG0apjrGTEdE_-itaU",
     linkedInUrl: "https://linkedin.com/in/santheesh16",
-    description: "A dedicated full-stack developer with 2 years of experience, skilled in modern technologies, backend systems, and AI integrations, with a strong focus on continuous learning.",
+    description:
+      "A dedicated full-stack developer with 2 years of experience, skilled in modern technologies, backend systems, and AI integrations, with a strong focus on continuous learning.",
   },
   {
     name: "Tamilvanan Gowran",
@@ -36,7 +38,8 @@ const teamMembers = [
     image:
       "https://media.licdn.com/dms/image/v2/D5603AQGeRtaMug37Qw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732357990386?e=1738800000&v=beta&t=HYK4YiVwtbl1mAYrhMFSBoMYWzy_DGLgTJh29Qopa2U",
     linkedInUrl: "https://www.linkedin.com/in/saran-kirthic-490377191/",
-    description: "Designs and implements intelligent systems, leveraging machine learning and AI technologies to solve complex problems and enhance user experiences.",
+    description:
+      "Designs and implements intelligent systems, leveraging machine learning and AI technologies to solve complex problems and enhance user experiences.",
   },
   // Add more team members as needed
 ];
@@ -49,42 +52,43 @@ const TeamMemberCard = ({
   linkedInUrl,
   description,
 }) => (
-  <div className="max-w-xs mx-auto">
-  <div className="relative group bg-white shadow-xl rounded-lg py-2 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-    {/* Profile Image */}
-    <div className="photo-wrapper p-10 relative">
-      <img
-        className="w-32 h-32 rounded-full mx-auto transform transition-transform duration-300 hover:scale-110"
-        src={image}
-        alt={`Profile picture of ${name}`}
-      />
-    </div>
+  <div className="flex items-center justify-center">
+  <div className="relative w-[250px] h-[350px] bg-[#07182E] flex items-center justify-center overflow-hidden rounded-xl group">
+    {/* Rotating Gradient Background */}
+    <div className="absolute w-[100px] h-[130%] bg-gradient-to-b from-blue-500 to-pink-500 animate-spin-slow"></div>
+
+    {/* Inner Overlay */}
+    <div className="absolute inset-1 bg-[#07182E] rounded-[15px]"></div>
 
     {/* Profile Info */}
-    <div className="p-2">
-      <h3 className="text-center text-xl text-gray-900 font-medium leading-8">
-        {name}
-      </h3>
-      <div className="text-center text-gray-400 text-xs font-semibold">
-        <p>{role}</p>
+    <div className="relative z-10 flex flex-col items-center p-4">
+      {/* Profile Image */}
+      <div className="relative w-24 h-24 mb-4">
+        <img
+          className="w-full h-full rounded-full mx-auto transform transition-transform duration-300 hover:scale-110"
+          src={image}
+          alt={`Profile picture of ${name}`}
+        />
       </div>
 
+      {/* Name and Role */}
+      <h3 className="text-xl font-medium text-white">{name}</h3>
+      <p className="text-sm font-semibold text-gray-400">{role}</p>
+
       {/* Description on Hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 bg-opacity-95 flex flex-col items-center justify-center opacity-0 group-hover:opacity-90 transition-opacity duration-500">
-        <p className="text-white text-2xl font-extrabold mb-3 drop-shadow-lg">
+      <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 bg-opacity-95 opacity-0 group-hover:opacity-90 transition-opacity duration-500">
+        <p className="text-2xl font-extrabold text-white drop-shadow-lg">
           About
         </p>
-        <p className="text-white text-sm text-center px-6 font-light leading-relaxed">
+        <p className="text-sm text-center text-white leading-relaxed">
           {description || "Description not available."}
         </p>
-        <div className="text-center my-3">
-          <a
-            className="text-sm text-indigo-400 italic hover:underline hover:text-red-500 font-semibold transition-colors duration-300"
-            href={`${linkedInUrl}`}
-          >
-            View Profile
-          </a>
-        </div>
+        <a
+          className="mt-3 text-sm font-semibold italic text-indigo-400 transition-colors duration-300 hover:underline"
+          href={`${linkedInUrl}`}
+        >
+          View Profile
+        </a>
       </div>
     </div>
   </div>
