@@ -2,7 +2,22 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Moon, Sun, Search, Home, Info, Briefcase, FolderOpen, Mail, Phone, Clock, Users, FileText } from "lucide-react";
+import {
+  Menu,
+  X,
+  Moon,
+  Sun,
+  Search,
+  Home,
+  Info,
+  Briefcase,
+  FolderOpen,
+  Mail,
+  Phone,
+  Clock,
+  Users,
+  FileText,
+} from "lucide-react";
 import { useTheme } from "next-themes";
 
 const Navbar = () => {
@@ -28,7 +43,7 @@ const Navbar = () => {
       const elementPosition = element.offsetTop - navHeight;
       window.scrollTo({
         top: elementPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -63,14 +78,17 @@ const Navbar = () => {
               >
                 <Menu className="h-6 w-6" />
               </button>
-
-              {/* Logo */}
               <button
-                onClick={() => scrollToSection('home')}
+                onClick={() => scrollToSection("home")}
                 className="ml-4 md:ml-0 text-2xl font-bold text-gray-900 dark:text-white cursor-pointer"
               >
-                Logo
+                Valaithazham
               </button>
+              <img
+                className="w-10 h-10 rounded-full mx-auto transform transition-transform duration-300 hover:scale-110"
+                src="./image/valaithazhalam1.png"
+                alt="Logo"
+              />
             </div>
 
             {/* Desktop Navigation Links */}
@@ -88,7 +106,6 @@ const Navbar = () => {
 
             {/* Theme Toggle & Search */}
             <div className="flex items-center space-x-4">
-              
               {mounted && (
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -110,7 +127,9 @@ const Navbar = () => {
       {/* Mobile Sidebar */}
       <div
         className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
         {/* Backdrop */}
@@ -130,7 +149,7 @@ const Navbar = () => {
           <div className="p-6">
             <div className="flex items-center justify-between mb-8">
               <button
-                onClick={() => scrollToSection('home')}
+                onClick={() => scrollToSection("home")}
                 className="text-2xl font-bold text-gray-900 dark:text-white"
               >
                 Logo
@@ -164,15 +183,23 @@ const Navbar = () => {
               <div className="flex items-center space-x-4 px-4 py-3">
                 <Clock className="h-5 w-5 text-gray-600 dark:text-gray-400" />
                 <div>
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">Working Hours</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Mon - Fri: 9AM - 6PM</p>
+                  <p className="text-sm font-medium text-gray-900 dark:text-white">
+                    Working Hours
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Mon - Fri: 9AM - 6PM
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-4 px-4 py-3">
                 <Phone className="h-5 w-5 text-gray-600 dark:text-gray-400" />
                 <div>
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">Contact Us</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">+1 (555) 123-4567</p>
+                  <p className="text-sm font-medium text-gray-900 dark:text-white">
+                    Contact Us
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    +1 (555) 123-4567
+                  </p>
                 </div>
               </div>
             </div>

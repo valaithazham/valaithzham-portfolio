@@ -29,7 +29,7 @@ const ContactSection = () => {
                   type="text"
                   id="name"
                   name="name"
-                  className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="mt-1 p-3 block w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   placeholder="Your Name"
                   required
                 />
@@ -46,7 +46,7 @@ const ContactSection = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="mt-1 p-3 block w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   placeholder="you@example.com"
                   required
                 />
@@ -63,7 +63,7 @@ const ContactSection = () => {
                   id="message"
                   name="message"
                   rows="4"
-                  className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="mt-1 p-3 block w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   placeholder="Write your message here..."
                   required
                 ></textarea>
@@ -107,7 +107,7 @@ const ContactSection = () => {
                   ></path>
                 </svg>
                 <span className="text-gray-700 dark:text-gray-300">
-                  contact@example.com
+                  valaithazhamofficial@gmail.com
                 </span>
               </li>
               <li className="flex items-center">
@@ -126,10 +126,10 @@ const ContactSection = () => {
                   ></path>
                 </svg>
                 <span className="text-gray-700 dark:text-gray-300">
-                  +123 456 7890
+                  +737 360 4355
                 </span>
               </li>
-              <li className="flex items-center">
+              {/* <li className="flex items-center">
                 <svg
                   className="w-6 h-6 text-indigo-600 dark:text-indigo-400 mr-4"
                   fill="none"
@@ -147,7 +147,7 @@ const ContactSection = () => {
                 <span className="text-gray-700 dark:text-gray-300">
                   123 Main Street, City, Country
                 </span>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

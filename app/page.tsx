@@ -29,11 +29,6 @@ export default function Home() {
         <Products />
       </section>
 
-      {/* Team Section */}
-      <section id="team">
-        <TeamSection />
-      </section>
-
       {/* Contact Section */}
       <section id="contact">
         <ContactSection />
