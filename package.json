@@ -2,7 +2,7 @@
   "name": "valaithzham.com",
   "version": "1.0.0",
   "private": true,
-    "homepage": "https://valaithzham.github.io/valaithzham-portfolio/",
+  "homepage": "https://valaithzham.github.io/valaithzham-portfolio/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,10 +17,11 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.359.0",
+    "motion": "^11.15.0",
     "next": "13.4.19",
     "next-themes": "^0.3.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7"
   },

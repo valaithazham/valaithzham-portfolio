@@ -1,6 +1,9 @@
 "use client";
+import { motion } from "framer-motion";
+import getScrollAnimation from "../utils/getScrollAnimation";
+import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
@@ -23,7 +26,8 @@ const slides = [
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+  
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -42,11 +46,13 @@ export default function HeroSlider() {
   return (
     <div className="relative h-[80vh] overflow-hidden">
       {slides.map((slide, index) => (
-        <div
+        <motion.div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: index === currentSlide ? 1 : 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
         >
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -56,31 +62,45 @@ export default function HeroSlider() {
           </div>
           <div className="relative h-full flex items-center justify-center text-center">
             <div className="max-w-4xl mx-auto px-4">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <motion.h1
+                className="text-4xl md:text-6xl font-bold text-white mb-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+              >
                 {slide.title}
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-200">
+              </motion.h1>
+              <motion.p
+                className="text-xl md:text-2xl text-gray-200"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.7, duration: 1 }}
+              >
                 {slide.description}
-              </p>
+              </motion.p>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
       
-      <button
+      <motion.button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors"
         aria-label="Previous slide"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
         <ChevronLeft className="h-6 w-6" />
-      </button>
-      <button
+      </motion.button>
+      <motion.button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors"
         aria-label="Next slide"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
         <ChevronRight className="h-6 w-6" />
-      </button>
+      </motion.button>
       
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
         {slides.map((_, index) => (

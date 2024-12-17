@@ -1,9 +1,38 @@
 import React from "react";
 
 const ContactSection = () => {
+  // Sample profiles
+  const profiles = [
+    {
+      name: "Yogabalajee V",
+      designation: "Graphic Designer",
+      email: "yogabalajee@gmail.com",
+      phone: "+123 456 7890",
+    },
+    {
+      name: "Santheesh A",
+      designation: "Full Stack Developer",
+      email: "santheesh16@gmail.com",
+      phone: "+959 751 6993",
+    },
+    {
+      name: "Tamilvanan Gowran",
+      designation: "Cloud and DevOps Engineer",
+      email: "tamilbecse139@gmail.com",
+      phone: "+112 358 1321",
+    },
+    {
+      name: "Saran Kiruthic",
+      designation: "AI Developer",
+      email: "saranabcd465@gmail.com",
+      phone: "+442 123 4455",
+    },
+  ];
+
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Contact Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
             Get in Touch
@@ -14,6 +43,7 @@ const ContactSection = () => {
           </p>
         </div>
 
+        {/* Contact Form and Info */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Form */}
           <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
@@ -34,7 +64,6 @@ const ContactSection = () => {
                   required
                 />
               </div>
-
               <div className="mb-4">
                 <label
                   htmlFor="email"
@@ -51,7 +80,6 @@ const ContactSection = () => {
                   required
                 />
               </div>
-
               <div className="mb-4">
                 <label
                   htmlFor="message"
@@ -68,7 +96,6 @@ const ContactSection = () => {
                   required
                 ></textarea>
               </div>
-
               <div className="text-right">
                 <button
                   type="submit"
@@ -80,7 +107,7 @@ const ContactSection = () => {
             </form>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Information */}
           <div className="flex flex-col justify-center bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg">
             <div className="mb-6">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">
@@ -129,27 +156,31 @@ const ContactSection = () => {
                   +737 360 4355
                 </span>
               </li>
-              {/* <li className="flex items-center">
-                <svg
-                  className="w-6 h-6 text-indigo-600 dark:text-indigo-400 mr-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2 12l2-2a8 8 0 018-8h4a8 8 0 018 8l2 2m-6 8v-3a2 2 0 00-2-2H8a2 2 0 00-2 2v3"
-                  ></path>
-                </svg>
-                <span className="text-gray-700 dark:text-gray-300">
-                  123 Main Street, City, Country
-                </span>
-              </li> */}
             </ul>
           </div>
+        </div>
+
+        {/* Team Members */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 rounded-[100px]">
+          {profiles.map((profile, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center"
+            >
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                {profile.name}
+              </h4>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {profile.designation}
+              </p>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {profile.email}
+              </p>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {profile.phone}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

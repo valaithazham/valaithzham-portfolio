@@ -19,6 +19,7 @@ import {
   FileText,
 } from "lucide-react";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,19 +54,22 @@ const Navbar = () => {
     { href: "about", label: "About", icon: Info },
     { href: "services", label: "Services", icon: Briefcase },
     { href: "products", label: "Products", icon: FolderOpen },
-    { href: "team", label: "Our Team", icon: Users },
+    { href: "vision", label: "Our Vision", icon: Users },
     { href: "contact", label: "Contact", icon: Mail },
   ];
 
   return (
     <>
       {/* Desktop Navigation */}
-      <nav
+      <motion.nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg"
             : "bg-white dark:bg-gray-900"
         }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -78,15 +82,9 @@ const Navbar = () => {
               >
                 <Menu className="h-6 w-6" />
               </button>
-              <button
-                onClick={() => scrollToSection("home")}
-                className="ml-4 md:ml-0 text-2xl font-bold text-gray-900 dark:text-white cursor-pointer"
-              >
-                Valaithazham
-              </button>
               <img
-                className="w-10 h-10 rounded-full mx-auto transform transition-transform duration-300 hover:scale-110"
-                src="./image/valaithazhalam1.png"
+                className="w-200 h-7 rounded-full mx-auto transform transition-transform duration-300 hover:scale-110"
+                src="./image/valaithazhalam.png"
                 alt="Logo"
               />
             </div>
@@ -122,18 +120,21 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile Sidebar */}
-      <div
+      <motion.div
         className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
       >
         {/* Backdrop */}
-        <div
+        <motion.div
           className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
             isOpen ? "opacity-100" : "opacity-0"
           }`}
@@ -141,19 +142,21 @@ const Navbar = () => {
         />
 
         {/* Sidebar */}
-        <div
+        <motion.div
           className={`absolute top-0 left-0 w-64 h-full bg-white dark:bg-gray-900 shadow-xl transform transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
+          initial={{ x: -300 }}
+          animate={{ x: isOpen ? 0 : -300 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="p-6">
             <div className="flex items-center justify-between mb-8">
-              <button
-                onClick={() => scrollToSection("home")}
-                className="text-2xl font-bold text-gray-900 dark:text-white"
-              >
-                Logo
-              </button>
+            <img
+                className="w-200 h-5 rounded-full mx-auto transform transition-transform duration-300 hover:scale-110"
+                src="./image/valaithazhalam.png"
+                alt="Logo"
+              />
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
@@ -204,8 +207,8 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </>
   );
 };

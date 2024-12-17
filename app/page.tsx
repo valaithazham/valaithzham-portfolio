@@ -4,7 +4,8 @@ import Services from "@/components/services";
 import Products from "@/components/products";
 import TeamSection from "@/components/team";
 import ContactSection from "@/components/contact-us";
-import Footer from "@/components/footer";
+import Footer from "@/components/Layout/Footer";
+import OurVision from "@/components/our-vision";
 
 export default function Home() {
   return (
@@ -27,6 +28,11 @@ export default function Home() {
       {/* Products Section */}
       <section id="products">
         <Products />
+      </section>
+
+      {/* Team Section */}
+      <section id="vision">
+        <OurVision />
       </section>
 
       {/* Contact Section */}
