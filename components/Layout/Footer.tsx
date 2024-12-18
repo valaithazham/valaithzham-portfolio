@@ -1,7 +1,13 @@
+"use client"
 import React from "react";
 import { Facebook, Twitter, Instagram, Link } from "lucide-react"; // Import lucide-react icons
+import { motion } from "framer-motion";
+import getScrollAnimation from "../../utils/getScrollAnimation";
+import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
+import { useMemo } from "react";
 
 const Footer = () => {
+  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   return (
     <div className="bg-white-300 pt-44 pb-24">
       <div className="max-w-screen-xl w-full mx-auto px-6 sm:px-8 lg:px-16 grid grid-rows-6 sm:grid-rows-1 grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-12 gap-4">
@@ -33,7 +39,7 @@ const Footer = () => {
         </div>
 
         {/* Product Links Section */}
-        <div className="row-span-2 sm:col-span-2 sm:col-start-7 sm:col-end-9 flex flex-col">
+        {/* <div className="row-span-2 sm:col-span-2 sm:col-start-7 sm:col-end-9 flex flex-col">
           <p className="text-black-600 mb-4 font-medium text-lg">Product</p>
           <ul className="text-black-500">
             <li className="my-2 hover:text-orange-500 cursor-pointer transition-all">
@@ -55,7 +61,7 @@ const Footer = () => {
               Blog{" "}
             </li>
           </ul>
-        </div>
+        </div> */}
 
         {/* Engage Links Section */}
         <div className="row-span-2 sm:col-span-2 sm:col-start-9 sm:col-end-11 flex flex-col">
@@ -97,11 +103,13 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom Section */}
-      <div className="mt-12 border-t border-gray-700 pt-6 text-center">
+      <ScrollAnimationWrapper className="">
+      <motion.div className="mt-12 border-t border-gray-700 pt-6 text-center" variants={scrollAnimation}>
         <p className="text-sm">
           &copy; {new Date().getFullYear()} All Rights Reserved.
         </p>
-      </div>
+      </motion.div>
+      </ScrollAnimationWrapper>
     </div>
   );
 };

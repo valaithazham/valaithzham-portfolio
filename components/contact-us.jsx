@@ -1,6 +1,12 @@
+"use client"
 import React from "react";
+import { motion } from "framer-motion";
+import getScrollAnimation from "../utils/getScrollAnimation";
+import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
+import { useMemo } from "react";
 
 const ContactSection = () => {
+  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   // Sample profiles
   const profiles = [
     {
@@ -33,7 +39,8 @@ const ContactSection = () => {
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Contact Section Header */}
-        <div className="text-center mb-12">
+        <ScrollAnimationWrapper className="">
+        <motion.div className="text-center mb-12" variants={scrollAnimation}>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
             Get in Touch
           </h2>
@@ -41,14 +48,16 @@ const ContactSection = () => {
             Have any questions? We'd love to hear from you. Send us a message
             and we'll respond as soon as possible.
           </p>
-        </div>
+        </motion.div>
+        </ScrollAnimationWrapper>
 
         {/* Contact Form and Info */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <ScrollAnimationWrapper className="">
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8" variants={scrollAnimation}>
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
+          <motion.div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
             <form action="#" method="POST">
-              <div className="mb-4">
+              <motion.div className="mb-4">
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -63,8 +72,8 @@ const ContactSection = () => {
                   placeholder="Your Name"
                   required
                 />
-              </div>
-              <div className="mb-4">
+              </motion.div>
+              <motion.div className="mb-4">
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -79,8 +88,8 @@ const ContactSection = () => {
                   placeholder="you@example.com"
                   required
                 />
-              </div>
-              <div className="mb-4">
+              </motion.div>
+              <motion.div className="mb-4">
                 <label
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -95,28 +104,28 @@ const ContactSection = () => {
                   placeholder="Write your message here..."
                   required
                 ></textarea>
-              </div>
-              <div className="text-right">
+              </motion.div>
+              <motion.div className="text-right">
                 <button
                   type="submit"
                   className="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Send Message
                 </button>
-              </div>
+              </motion.div>
             </form>
-          </div>
+          </motion.div>
 
           {/* Contact Information */}
-          <div className="flex flex-col justify-center bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg">
-            <div className="mb-6">
+          <motion.div className="flex flex-col justify-center bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+            <motion.div className="mb-6">
               <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                 Contact Information
               </h3>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                 Feel free to reach out to us through any of the channels below.
               </p>
-            </div>
+            </motion.div>
             <ul className="space-y-4">
               <li className="flex items-center">
                 <svg
@@ -157,11 +166,11 @@ const ContactSection = () => {
                 </span>
               </li>
             </ul>
-          </div>
-        </div>
-
+          </motion.div>
+        </motion.div>
+        </ScrollAnimationWrapper>
         {/* Team Members */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 rounded-[100px]">
+        {/* <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 rounded-[100px]">
           {profiles.map((profile, index) => (
             <div
               key={index}
@@ -181,7 +190,7 @@ const ContactSection = () => {
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

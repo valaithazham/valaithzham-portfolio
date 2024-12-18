@@ -1,5 +1,10 @@
+"use client"
 import React from 'react'
 import { Lightbulb, Rocket, Globe } from "lucide-react";
+import { motion } from "framer-motion";
+import getScrollAnimation from "../utils/getScrollAnimation";
+import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
+import { useMemo } from "react";
 
 const visionPhases = [
   {
@@ -25,31 +30,34 @@ const visionPhases = [
 ];
 
 function OurVision() {
+  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollAnimationWrapper className="">
+        <motion.div className="text-center mb-16" variants={scrollAnimation}>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             Our Vision
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Explore how we envision the future, progressing step by step to make a lasting impact on the world of technology.
           </p>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-8">
+        </motion.div>
+        </ScrollAnimationWrapper>
+        
+        <ScrollAnimationWrapper className="flex flex-col lg:flex-row gap-8">
           {visionPhases.map((phase, index) => {
             const Icon = phase.icon;
             return (
-              <div
+              <motion.div
                 key={index}
                 className={`flex-1 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow ${
                   index > 0 ? "lg:ml-8" : ""
-                }`}
+                }`} variants={scrollAnimation}
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <motion.div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                   <Icon className="h-6 w-6 text-primary" />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                   {phase.title}
                 </h3>
@@ -59,11 +67,11 @@ function OurVision() {
                   </p>
                 )}
                 <p className="text-gray-600 dark:text-gray-300">{phase.description}</p>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
-      </div>
+        </ScrollAnimationWrapper>
+      </motion.div>
     </section>
   );
 }
