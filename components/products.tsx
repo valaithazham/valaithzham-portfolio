@@ -7,24 +7,21 @@ import { useMemo } from "react";
 const products = [
   {
     id: 1,
-    name: "Premium Product",
-    price: "$99.99",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
-    description: "High-quality premium product with exceptional features",
+    name: "E-Commerce",
+    image: "./image/e-commerce.png",
+    description: "Built a feature-rich E-Commerce application with a responsive interface using ReactJS, TypeScript, and NodeJS, integrated with secure payment gateways and real-time inventory management.",
   },
   {
     id: 2,
-    name: "Essential Package",
-    price: "$49.99",
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
-    description: "Essential features for your everyday needs",
+    name: "ChatPDF Personal",
+    image: "./image/chatPDF.png",
+    description: "An AI-powered ChatPDF project using React, TypeScript, Next.js, and Pinecone to enable seamless document processing and intelligent chat interactions.",
   },
   {
     id: 3,
-    name: "Pro Bundle",
-    price: "$149.99",
-    image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f",
-    description: "Professional bundle with advanced capabilities",
+    name: "Professional/Personal Portfolio",
+    image: "./image/personal-portfolio.png",
+    description: "A dynamic, animated personal portfolio using ReactJS, TypeScript, and GSAP, showcasing projects, skills, and achievements with interactive and visually engaging user experiences.",
   },
 ];
 
@@ -32,7 +29,7 @@ export default function Products() {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   return (
     <section className="py-20 bg-white dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollAnimationWrapper className="">
         <motion.div className="text-center" variants={scrollAnimation}>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -44,11 +41,11 @@ export default function Products() {
         </motion.div>
         </ScrollAnimationWrapper>
         
-        <ScrollAnimationWrapper className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <motion.div
-              key={product.id}
-              className="bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow" variants={scrollAnimation}
+            key={product.id}
+              className="bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
             >
               <motion.div className="aspect-w-16 aspect-h-9 relative">
                 <img
@@ -62,9 +59,9 @@ export default function Products() {
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                     {product.name}
                   </h3>
-                  <span className="text-lg font-bold text-primary">
+                  {/* <span className="text-lg font-bold text-primary">
                     {product.price}
-                  </span>
+                  </span> */}
                 </motion.div>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {product.description}
@@ -75,8 +72,8 @@ export default function Products() {
               </motion.div>
             </motion.div>
           ))}
-        </ScrollAnimationWrapper>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

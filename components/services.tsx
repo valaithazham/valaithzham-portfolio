@@ -32,7 +32,7 @@ export default function Services() {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ScrollAnimationWrapper className="">
         <motion.div className="text-center mb-16" variants={scrollAnimation}>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -44,14 +44,13 @@ export default function Services() {
           </p>
         </motion.div>
         </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.div
                 key={index}
-                className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-                variants={scrollAnimation}>
+                className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                 <motion.div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                   <Icon className="h-6 w-6 text-primary" />
                 </motion.div>
@@ -64,8 +63,8 @@ export default function Services() {
               </motion.div>
             );
           })}
-        </ScrollAnimationWrapper>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
