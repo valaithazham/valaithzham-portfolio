@@ -3,7 +3,8 @@ import Mail from "nodemailer/lib/mailer";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 const transporter = nodemailer.createTransport({
-  service: process.env.MAIL_HOST,
+  service: process.env.MAIL_SERVICE,
+  host: process.env.MAIL_HOST,
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASSWORD,

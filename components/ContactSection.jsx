@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import { useMemo, useState } from "react";
-import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const ContactSection = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
