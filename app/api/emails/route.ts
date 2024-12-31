@@ -9,10 +9,6 @@ const CONTACT_MESSAGE_FIELDS = {
   message: "Message",
 };
 
-export const config = {
-  runtime: 'edge', // If using edge runtime
-};
-
 export async function OPTIONS() {
   return NextResponse.json(
     { message: 'CORS preflight response' },
