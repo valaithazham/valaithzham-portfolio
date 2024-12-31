@@ -8,8 +8,8 @@ import { useMemo } from "react";
 const services = [
   {
     icon: BookHeart,
-    title: "Professional/Personal Websites",
-    description: "Clean, professional, and informative websites that effectively showcase your business, services, and contact details in a streamlined, user-friendly form",
+    title: "Custom Website Design",
+    description: "Beautiful, user-friendly designs that reflect your brand's identity and make a lasting impression.",
   },
   {
     icon: ShoppingCart,

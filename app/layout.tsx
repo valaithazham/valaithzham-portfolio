@@ -5,6 +5,11 @@ import Navbar from "@/components/Layout/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const metadata = {
+  title : "Valaithazham",
+  description: "Valaithazham is a platform for ",
+}
+
 export default function RootLayout({
   children,
 }: {

@@ -27,9 +27,8 @@ export default function About() {
               About Our Company
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            We are a team of freelance website designers brought together by a journey that began during our engineering days. United by a shared vision and camaraderie, we've joined hands to bring the power of technology to small-scale local businesses.
+            We are a passionate team of freelance website designers united by a shared journey and a vision to empower small-scale local businesses through technology. Our collective expertise and camaraderie drive us to create innovative digital solutions that enable businesses to flourish in the fast-evolving digital landscape.
             <br />
-            Our mission is simple yet impactful: to design innovative websites and integrate AI-powered solutions that help businesses grow and thrive in the digital age. As young professionals brimming with creativity and determination, we are dedicated to not just achieving personal success but also contributing to the betterment of society.
             <br />
             Let's build something amazing together — because your success is our story!
 
