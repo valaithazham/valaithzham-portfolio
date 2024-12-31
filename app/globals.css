@@ -16,6 +16,10 @@
   }
 }
 
+.icon-blue {
+  color: #5047e6; /* Replace with your desired blue hex code */
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 4rem;

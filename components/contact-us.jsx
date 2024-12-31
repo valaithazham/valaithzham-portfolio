@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import { useMemo, useState } from "react";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const ContactSection = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
@@ -171,7 +172,7 @@ const ContactSection = () => {
                 </p>
               </motion.div>
               <ul className="space-y-4">
-                <li className="flex items-center">
+                {/* <li className="flex items-center">
                   <svg
                     className="w-6 h-6 text-indigo-600 dark:text-indigo-400 mr-4"
                     fill="none"
@@ -206,9 +207,18 @@ const ContactSection = () => {
                     ></path>
                   </svg>
                   <span className="text-gray-700 dark:text-gray-300">
-                    +91 7373604355
+                    +91 737360435555
                   </span>
-                </li>
+                </li> */}
+              <li className="d-flex align-items-center">
+                <i className="bi bi-envelope-fill text-primary icon-blue me-3"></i>
+                <span className="text-dark">valaithazhamofficial@gmail.com</span>
+              </li>
+              <li className="d-flex align-items-center">
+                <i className="bi bi-phone-vibrate-fill text-primary icon-blue me-3"></i>
+                <span className="text-dark">+91 7373604355</span>
+              </li>
+
                 <li className="flex items-center">
                   <svg
                     className="w-6 h-6 text-indigo-600 dark:text-indigo-400 mr-4"
