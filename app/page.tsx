@@ -26,7 +26,7 @@ export default function Home() {
 
       {/* Products Section */}
       <section id="products">
-        <ProjectDetails product={{ /* provide valid Products object properties here */ }} />
+        <ProjectDetails product={undefined} />
       </section>
 
       {/* Team Section */}
