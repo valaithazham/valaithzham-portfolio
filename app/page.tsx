@@ -1,10 +1,4 @@
-import HeroSlider from "@/components/HeroSlider";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import ContactSection from "@/components/Contact-us";
-import Footer from "@/components/Layout/Footer";
-import OurVision from "@/components/OurVision";
-import ProjectDetails from "@/components/ProjectDetails";
+import { About, ContactSection, Footer, HeroSlider, OurVision, ProjectDetails, Services } from "@/components";
 
 export default function Home() {
   return (
@@ -26,7 +20,7 @@ export default function Home() {
 
       {/* Products Section */}
       <section id="products">
-        <ProjectDetails />
+        <ProjectDetails product={undefined} />
       </section>
 
       {/* Team Section */}
