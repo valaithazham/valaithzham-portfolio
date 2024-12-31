@@ -1,4 +1,10 @@
-import { About, ContactSection, Footer, HeroSlider, OurVision, ProjectDetails, Services } from "@/components";
+import HeroSlider from "../components/HeroSlider";
+import About from "../components/About";
+import Services from "../components/Services";
+import ContactSection from "../components/ContactSection";
+import Footer from "../components/Layout/Footer";
+import OurVision from "../components/OurVision";
+import ProjectDetails from "../components/ProjectDetails";
 
 export default function Home() {
   return (
