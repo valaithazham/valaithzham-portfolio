@@ -30,7 +30,7 @@ jobs:
     - name: Build the app
       env:
         GITHUB_PAGES: 'true' # Enable GitHub Pages settings
-      run: npm run export
+      run: npm run build && ls -lla
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
