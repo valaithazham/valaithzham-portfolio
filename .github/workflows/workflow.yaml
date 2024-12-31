@@ -25,12 +25,12 @@ jobs:
         node-version: 18 # Use the version compatible with your Next.js app
 
     - name: Install dependencies
-      run: npm install
+      run: npm install && ls -lla
 
     - name: Build the app
       env:
         GITHUB_PAGES: 'true' # Enable GitHub Pages settings
-      run: npm run build && ls -lla
+      run: npm run export && ls -lla
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
