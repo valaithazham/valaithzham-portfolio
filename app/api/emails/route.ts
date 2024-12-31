@@ -9,6 +9,23 @@ const CONTACT_MESSAGE_FIELDS = {
   message: "Message",
 };
 
+export const config = {
+  runtime: 'edge', // If using edge runtime
+};
+
+export async function OPTIONS() {
+  return NextResponse.json(
+    { message: 'CORS preflight response' },
+    {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    }
+  );
+}
+
 const generateEmailContent = (data: { [s: string]: unknown; } | ArrayLike<unknown>) => {
   const stringData = Object.entries(data).reduce(
     (str, [key, val]) =>
