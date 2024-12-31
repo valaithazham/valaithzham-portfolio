@@ -39,9 +39,11 @@ const generateEmailContent = (data: { [s: string]: unknown; } | ArrayLike<unknow
 };
 
 export async function POST(req: Request) {
+  
   try {
     // Parse the JSON body of the incoming request
     const data = await req.json();
+    console.log("Request body:", data);
     const sender = {
       name: "Valaithazham",
       address: "no-reply@examlpe.com",

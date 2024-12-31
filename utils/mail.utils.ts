@@ -3,16 +3,13 @@ import Mail from "nodemailer/lib/mailer";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 const transporter = nodemailer.createTransport({
-  service: process.env.MAIL_SERVICE,
   host: process.env.MAIL_HOST,
+  port: process.env.MAIL_PORT,
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASSWORD,
   },
-  tls: {
-    rejectUnauthorized: false,
-  },
-  debug: true,
+  secure: true
 } as SMTPTransport.Options);
 
 type SendEmailDto = {
