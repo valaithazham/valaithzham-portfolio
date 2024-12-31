@@ -1,7 +1,7 @@
 import HeroSlider from "@/components/HeroSlider";
-import About from "@/components/about";
-import Services from "@/components/services";
-import ContactSection from "@/components/contact-us";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import ContactSection from "@/components/Contact-us";
 import Footer from "@/components/Layout/Footer";
 import OurVision from "@/components/OurVision";
 import ProjectDetails from "@/components/ProjectDetails";
@@ -26,7 +26,7 @@ export default function Home() {
 
       {/* Products Section */}
       <section id="products">
-        <ProjectDetails product={undefined} />
+        <ProjectDetails />
       </section>
 
       {/* Team Section */}

@@ -4,7 +4,7 @@ import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import { useMemo } from "react";
 
-export default function About() {
+const About = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   
   return (
@@ -54,3 +54,5 @@ export default function About() {
     </section>
   );
 }
+
+export default About;
