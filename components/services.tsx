@@ -28,7 +28,7 @@ const services = [
   },
 ];
 
-const Services = () => {  
+export default function Services() {  
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
@@ -68,5 +68,3 @@ const Services = () => {
     </section>
   );
 }
-
-export default Services;
