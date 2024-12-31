@@ -3,6 +3,7 @@ const isGitHubPages = process.env.GITHUB_PAGES === "true"; // Check if running o
 const repoName = "valaithzham-portfolio"; // Replace with your repository name
 
 const nextConfig = {
+  distDir: "build", // Specify the directory for the exported files
   async headers() {
     return [
       {
