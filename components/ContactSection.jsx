@@ -7,7 +7,6 @@ import { useMemo, useState } from "react";
 
 const ContactSection = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
-  const API_BASE_URL = "https://valaithzham.vercel.app";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,7 +24,7 @@ const ContactSection = () => {
     setStatus("Sending...");
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/emails`, {
+      const response = await fetch("/api/emails", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(formData),
