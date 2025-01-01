@@ -2,6 +2,12 @@ import { sendEmail } from "@/utils/mail.utils";
 export const dynamic = "force-static";
 import { NextResponse } from "next/server";
 
+const headers = new Headers({
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST",
+  "Content-Type": "application/json",
+});
+
 const CONTACT_MESSAGE_FIELDS = {
   name: "Name",
   email: "Email",
@@ -9,27 +15,20 @@ const CONTACT_MESSAGE_FIELDS = {
   message: "Message",
 };
 
-export async function OPTIONS() {
-  return NextResponse.json(
-    { message: 'CORS preflight response' },
-    {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
-    }
-  );
-}
-
-const generateEmailContent = (data: { [s: string]: unknown; } | ArrayLike<unknown>) => {
+const generateEmailContent = (
+  data: { [s: string]: unknown } | ArrayLike<unknown>
+) => {
   const stringData = Object.entries(data).reduce(
     (str, [key, val]) =>
-      (str += `${CONTACT_MESSAGE_FIELDS[key as keyof typeof CONTACT_MESSAGE_FIELDS]}: \n${val} \n \n`),
+      (str += `${
+        CONTACT_MESSAGE_FIELDS[key as keyof typeof CONTACT_MESSAGE_FIELDS]
+      }: \n${val} \n \n`),
     ""
   );
   const htmlData = Object.entries(data).reduce((str, [key, val]) => {
-    return (str += `<h3 class="form-heading" align="left">${CONTACT_MESSAGE_FIELDS[key as keyof typeof CONTACT_MESSAGE_FIELDS]}</h3><p class="form-answer" align="left">${val}</p>`);
+    return (str += `<h3 class="form-heading" align="left">${
+      CONTACT_MESSAGE_FIELDS[key as keyof typeof CONTACT_MESSAGE_FIELDS]
+    }</h3><p class="form-answer" align="left">${val}</p>`);
   }, "");
 
   return {
@@ -39,7 +38,6 @@ const generateEmailContent = (data: { [s: string]: unknown; } | ArrayLike<unknow
 };
 
 export async function POST(req: Request) {
-  
   try {
     // Parse the JSON body of the incoming request
     const data = await req.json();
@@ -54,18 +52,18 @@ export async function POST(req: Request) {
         name: "Santheesh A",
         address: "santheesh16@gmail.com",
       },
-      {
-        name: "Tamilvanan Gowran",
-        address: "tamilbecse139@gmail.com",
-      },
-      {
-        name: "Yogabalajee V",
-        address: "yogabalajee@gmail.com",
-      },
-      {
-        name: "Saran Krithic",
-        address: "saranabcd465@gmail.com",
-      },
+      // {
+      //   name: "Tamilvanan Gowran",
+      //   address: "tamilbecse139@gmail.com",
+      // },
+      // {
+      //   name: "Yogabalajee V",
+      //   address: "yogabalajee@gmail.com",
+      // },
+      // {
+      //   name: "Saran Krithic",
+      //   address: "saranabcd465@gmail.com",
+      // },
     ];
 
     // Sending the email
@@ -73,25 +71,25 @@ export async function POST(req: Request) {
       sender,
       receipients,
       subject: data.subject,
-      message: generateEmailContent(data).html
+      message: generateEmailContent(data).html,
     });
 
     // Return success response
-    return new NextResponse(
+    return new Response(
       JSON.stringify({
         accepted: result.accepted,
       }),
-      { status: 200 }
+      { status: 200, headers }
     );
   } catch (e) {
     console.error("Error sending email:", e);
-    
+
     // Return error response if something goes wrong
-    return new NextResponse(
+    return new Response(
       JSON.stringify({
         message: "Unable to send email now, Try again later!",
       }),
-      { status: 500 }
+      { status: 500, headers }
     );
   }
 }
