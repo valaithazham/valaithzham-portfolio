@@ -6,4 +6,4 @@ publish = ".next"
 directory = "netlify/functions"
 
 [[plugins]]
-package = "@netlify/plugin-nextjs"
+package = "@netlify/plugin-nextjs@5.9.2"
