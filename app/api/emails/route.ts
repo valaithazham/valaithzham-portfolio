@@ -1,6 +1,6 @@
 import { sendEmail } from "@/utils/mail.utils";
 export const dynamic = "force-static";
-import { NextResponse } from "next/server";
+import { NextRequest,NextResponse } from "next/server";
 
 const headers = new Headers({
   "Access-Control-Allow-Origin": "*",
@@ -37,7 +37,7 @@ const generateEmailContent = (
   };
 };
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
     // Parse the JSON body of the incoming request
     const data = await req.json();
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
     });
 
     // Return success response
-    return new Response(
+    return new NextResponse(
       JSON.stringify({
         accepted: result.accepted,
       }),
@@ -85,7 +85,7 @@ export async function POST(req: Request) {
     console.error("Error sending email:", e);
 
     // Return error response if something goes wrong
-    return new Response(
+    return new NextResponse(
       JSON.stringify({
         message: "Unable to send email now, Try again later!",
       }),

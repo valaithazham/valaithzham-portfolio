@@ -3,6 +3,10 @@ const isGitHubPages = process.env.GITHUB_PAGES === 'true'; // Check if running o
 const repoName = 'valaithzham-portfolio'; // Replace with your repository name
 
 const nextConfig = {
+  experimental: {
+    appDir: true, // Ensure app directory is enabled
+  },
+  outputFileTracing: true, // Required for serverless functions
   output: 'export',
   basePath: isGitHubPages ? `/${repoName}` : '', // Set basePath only for GitHub Pages
   assetPrefix: isGitHubPages ? `/${repoName}/` : '', // Prefix for static assets
