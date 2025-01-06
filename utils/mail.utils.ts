@@ -9,7 +9,11 @@ const transporter = nodemailer.createTransport({
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASSWORD,
   },
-  secure: true
+  secure: true,
+  tls: {  
+    // do not fail on invalid certs
+    rejectUnauthorized: false,
+  },
 } as SMTPTransport.Options);
 
 type SendEmailDto = {

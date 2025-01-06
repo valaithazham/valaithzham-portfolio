@@ -60,13 +60,14 @@ const ContactSection = () => {
 
         {/* Contact Form and Info */}
         {/* Contact Form */}
-        <ScrollAnimationWrapper>
+        
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            variants={scrollAnimation}
+            
           >
+            <ScrollAnimationWrapper>
             {/* Contact Form */}
-            <motion.div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
+            <motion.div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8" variants={scrollAnimation}>
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                   <label
@@ -155,14 +156,15 @@ const ContactSection = () => {
                 </p>
               )}
             </motion.div>
-
+            </ScrollAnimationWrapper>
+            <ScrollAnimationWrapper>
             {/* Contact Information */}
-            <motion.div className="flex flex-col justify-center bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+            <motion.div className="flex flex-col justify-center bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg gap-5" variants={scrollAnimation}>
               <motion.div className="mb-6">
                 <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                   Contact Us to Join Our Developer Community
                 </h3>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 ">
                   Are you passionate about coding, learning, and sharing
                   knowledge? Join our vibrant developer community today! Whether
                   you're looking to collaborate on exciting projects, share your
@@ -170,7 +172,7 @@ const ContactSection = () => {
                   levels to join us.
                 </p>
               </motion.div>
-              <ul className="space-y-4">
+              <ul className="space-y-4 ">
                 {/* <li className="flex items-center">
                   <svg
                     className="w-6 h-6 text-indigo-600 dark:text-indigo-400 mr-4"
@@ -209,7 +211,7 @@ const ContactSection = () => {
                     +91 737360435555
                   </span>
                 </li> */}
-              <li className="d-flex align-items-center">
+              <li className="d-flex align-items-center gap-5">
                 <i className="bi bi-envelope-fill text-primary icon-blue me-3"></i>
                 <span className="text-dark">valaithazhamofficial@gmail.com</span>
               </li>
@@ -245,8 +247,10 @@ const ContactSection = () => {
                 </li>
               </ul>
             </motion.div>
+            </ScrollAnimationWrapper>
           </motion.div>
-        </ScrollAnimationWrapper>
+          
+        
       </div>
     </section>
   );

@@ -201,7 +201,7 @@ const Navbar = () => {
                     Contact Us
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    +1 (555) 123-4567
+                  +91 7373604355
                   </p>
                 </div>
               </div>

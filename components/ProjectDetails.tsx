@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Products } from "@/types";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
+import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 
 const products = [
   {
@@ -160,13 +161,13 @@ const ProjectDetails = ({ product }: ProjectDetailsProps) => {
                     onClick={prevImage}
                     className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-900 text-white p-2 rounded-full"
                   >
-                    ◀
+                    <ArrowBigLeft/>
                   </button>
                   <button
                     onClick={nextImage}
                     className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-900 text-white p-2 rounded-full"
                   >
-                    ▶
+                    <ArrowBigRight/>
                   </button>
                 </>
               )}
