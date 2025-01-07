@@ -1,39 +1,54 @@
-name: Deploy Portfolio to GitHub Pages
+name: Build and Deploy Next.js to FTP with SMTP
 
 on:
   push:
     branches:
-    - main # Replace with your default branch name if different.
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+      - main  # Adjust branch as needed
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+    # Step 1: Checkout repository
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup Node.js
+    # Step 2: Set up Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18 # Use the version compatible with your Next.js app
+        node-version: 18 # Adjust to your Node.js version
 
+    # Step 3: Install dependencies
     - name: Install dependencies
       run: npm install
 
-    - name: Build the app
-      env:
-        GITHUB_PAGES: 'true' # Enable GitHub Pages settings
-      run: npm run export
+    # Step 4: Add SMTP environment variables
+    - name: Set up SMTP environment variables
+      run: |
+        echo "SMTP_HOST=${{ secrets.MAIL_HOST }}" >> .env
+        echo "SMTP_PORT=${{ secrets.MAIL_PORT }}" >> .env
+        echo "SMTP_USERNAME=${{ secrets.MAIL_USER }}" >> .env
+        echo "SMTP_PASSWORD=${{ secrets.MAIL_PASSWORD }}" >> .env
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    # Step 5: Build and export Next.js
+    - name: Build and export Next.js
+      run: |
+        npm run build
+
+    # Step 6: Deploy to FTP
+    - name: Deploy to FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: ${{ secrets.FTP_PORT }} # Default is 21, can be omitted if using standard port
+        local-dir: out
+        protocol: ftps # Use `ftp` if not using SSL
+
+    # Step 7: List all the files
+    - name: List all the files
+      run: |
+        ls -lla
