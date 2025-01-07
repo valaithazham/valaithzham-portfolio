@@ -28,7 +28,7 @@ const ContactSection = () => {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(formData),
-        mode: "cors"
+        mode: "no-cors"
       });
 
       if (response.ok) {
