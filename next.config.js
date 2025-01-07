@@ -7,7 +7,6 @@ const nextConfig = {
     appDir: true, // Ensure app directory is enabled
   },
   outputFileTracing: true, // Required for serverless functions
-  output: 'export',
   basePath: isGitHubPages ? `/${repoName}` : '', // Set basePath only for GitHub Pages
   assetPrefix: isGitHubPages ? `/${repoName}/` : '', // Prefix for static assets
   images: { 
