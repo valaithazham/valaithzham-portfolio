@@ -24,11 +24,11 @@ const ContactSection = () => {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("https://valaithazham.great-site.net/api/emails", {
+      const response = await fetch("/api/emails", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(formData),
-        mode: "no-cors"
+        mode: "cors"
       });
 
       if (response.ok) {

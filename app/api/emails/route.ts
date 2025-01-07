@@ -3,7 +3,7 @@ export const dynamic = "force-static";
 import { NextRequest,NextResponse } from "next/server";
 
 const headers = new Headers({
-  "Access-Control-Allow-Origin": "https://valaithazham.great-site.net",
+  "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST",
   "Content-Type": "application/json",
 });
@@ -12,7 +12,7 @@ export async function OPTIONS() {
   return new Response(null, {
     status: 200,
     headers: {
-      "Access-Control-Allow-Origin": "https://valaithazham.great-site.net",
+      "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type, Authorization",
     },
