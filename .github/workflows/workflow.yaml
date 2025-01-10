@@ -1,30 +1,24 @@
-name: Build and Deploy Next.js to FTP with SMTP
-
+name: 🚀 Deploy website on push
 on:
   push:
     branches:
       - main  # Adjust branch as needed
-
 jobs:
-  build-and-deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-
     steps:
-    # Step 1: Checkout repository
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
 
-    # Step 2: Set up Node.js
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
+    - name: Use Node.js 18
+      uses: actions/setup-node@v2
       with:
-        node-version: 18 # Adjust to your Node.js version
-
-    # Step 3: Install dependencies
-    - name: Install dependencies
+        node-version: '18'
+      
+    - name: 🚚 Install dependencies
       run: npm install
 
-    # Step 4: Add SMTP environment variables
     - name: Set up SMTP environment variables
       run: |
         echo "SMTP_HOST=${{ secrets.MAIL_HOST }}" >> .env.local
@@ -32,23 +26,16 @@ jobs:
         echo "SMTP_USERNAME=${{ secrets.MAIL_USER }}" >> .env.local
         echo "SMTP_PASSWORD=${{ secrets.MAIL_PASSWORD }}" >> .env.local
 
-    # Step 5: Build and export Next.js
-    - name: Build and export Next.js
+    - name: 🔨 Build and export the Project
       run: |
         npm run build
-
-    # Step 6: Deploy to FTP
-    - name: Deploy to FTP
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ${{ secrets.FTP_HOST }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        port: ${{ secrets.FTP_PORT }} # Default is 21, can be omitted if using standard port
-        local-dir: out
-        protocol: ftp # Use `ftp` if not using SSL
+        server: ${{ secrets.FTPHOST }}
+        username: ${{ secrets.FTPUSER }}
+        password: ${{ secrets.FTPPASSWORD }}
+        local-dir: out/
+        remote-dir: /htdocs/
 
-    # Step 7: List all the files
-    - name: List all the files
-      run: |
-        ls -lla
