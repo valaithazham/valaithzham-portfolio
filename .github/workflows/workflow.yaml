@@ -37,5 +37,5 @@ jobs:
         username: ${{ secrets.FTPUSER }}
         password: ${{ secrets.FTPPASSWORD }}
         local-dir: out/
-        remote-dir: /htdocs/
+        server-dir: /htdocs/
 
